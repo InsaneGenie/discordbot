@@ -53,7 +53,7 @@ async function sendDailyMessage(day) {
 
 async function updateStatus(day) {
   await client.user.setPresence({
-    activities: [{ name: `Day ${day}`, type: ActivityType.Playing }],
+    activities: [{ name: `Day ${day}`, type: ActivityType.Streaming }],
     status: "online",
   });
 }
