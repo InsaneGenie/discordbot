@@ -29,7 +29,7 @@ client.once("ready", async () => {
   }
 
   // send daily DM + update status
-  cron.schedule("0 9 * * *", async () => {
+  cron.schedule("0 0 * * *", async () => {
     counter++;
     fs.writeFileSync("count.txt", counter.toString());
     await sendDailyMessage(counter);
