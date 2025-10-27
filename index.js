@@ -34,6 +34,8 @@ client.once("ready", async () => {
     fs.writeFileSync("count.txt", counter.toString());
     await sendDailyMessage(counter);
     await updateStatus(counter);
+  }, {
+    timezone: "America/New_York"  // optional: adjust for your local timezone
   });
 
   // initial send & status
