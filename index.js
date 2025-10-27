@@ -1,6 +1,7 @@
 import { Client, GatewayIntentBits, ActivityType } from "discord.js";
 import cron from "node-cron";
 import fs from "fs";
+import 'dotenv/config';
 
 const client = new Client({
   intents: [
