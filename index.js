@@ -3,6 +3,11 @@ import cron from "node-cron";
 import fs from "fs";
 import 'dotenv/config';
 
+import express from "express";
+const app = express();
+app.get("/", (req, res) => res.send("✅ Bot is alive"));
+app.listen(3000, () => console.log("🌐 Web server running"));
+
 const client = new Client({
   intents: [
     GatewayIntentBits.Guilds,
@@ -24,7 +29,7 @@ client.once("ready", async () => {
   }
 
   // send daily DM + update status
-  cron.schedule(" * * * *", async () => {
+  cron.schedule("0 0 * * *", async () => {
     counter++;
     fs.writeFileSync("count.txt", counter.toString());
     await sendDailyMessage(counter);
@@ -53,4 +58,4 @@ async function updateStatus(day) {
   });
 }
 
-client.login("client.login(process.env.TOKEN);");
+client.login(process.env.TOKEN);
